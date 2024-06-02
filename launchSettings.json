@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "complexlabgateway": "StartDebugging",
+        "carrentalservice": "StartDebugging",
+        "authenticationservice": "StartDebugging",
+        "paymentservice": "StartDebugging"
+      }
+    }
+  }
+}

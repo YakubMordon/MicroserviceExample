@@ -1,0 +1,48 @@
+version: '3.4'
+
+services:
+  paymentservice:
+    image: ${DOCKER_REGISTRY-}paymentservice
+    build:
+      context: .
+      dockerfile: PaymentService/Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    hostname: paymentservice
+
+  complexlabgateway:
+    image: ${DOCKER_REGISTRY-}complexlabgateway
+    build:
+      context: .
+      dockerfile: APIGateway/Dockerfile
+    ports:
+      - "8082:8080"
+      - "8083:8081"
+    hostname: complexlabgateway
+
+  carrentalservice:
+    image: ${DOCKER_REGISTRY-}carrentalservice
+    build:
+      context: .
+      dockerfile: CarRentalService/Dockerfile
+    ports:
+      - "8084:8080"
+      - "8085:8081"
+    hostname: carrentalservice
+
+  authenticationservice:
+    image: ${DOCKER_REGISTRY-}authenticationservice
+    build:
+      context: .
+      dockerfile: AuthenticationService/Dockerfile
+    ports:
+      - "8086:8080"
+      - "8087:8081"
+    hostname: authenticationservice
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    hostname: redis
